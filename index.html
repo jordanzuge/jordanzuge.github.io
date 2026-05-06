@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Zuge — Mechanical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c0f;
+    --bg2: #0f1218;
+    --bg3: #151a22;
+    --border: #1e2630;
+    --accent: #00c8ff;
+    --accent2: #ff6b2b;
+    --text: #e8edf2;
+    --text-dim: #6b7d8f;
+    --text-mid: #9aaabb;
+    --mono: 'DM Mono', monospace;
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(10,12,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero-scan {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,200,255,0.03) 50%, transparent 100%);
+    animation: scan 8s ease-in-out infinite;
+  }
+  @keyframes scan {
+    0%, 100% { transform: translateY(-100%); }
+    50% { transform: translateY(100%); }
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: var(--display);
+    font-size: clamp(5rem, 12vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-name span { color: var(--accent); }
+
+  .hero-sub {
+    font-family: var(--body);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 540px;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 0.3rem; }
+  .stat-num {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    margin-top: 2.5rem;
+    padding: 0.9rem 2rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+    width: fit-content;
+  }
+  .hero-cta:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 3rem; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    margin-bottom: 3rem;
+    color: var(--text);
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 60%);
+    margin-bottom: 5rem;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text { font-size: 1.05rem; color: var(--text-mid); line-height: 1.8; }
+  .about-text p + p { margin-top: 1.2rem; }
+  .about-text strong { color: var(--text); font-weight: 500; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .skill-tag {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-mid);
+    letter-spacing: 0.05em;
+  }
+  .skill-tag::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s;
+    cursor: default;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s;
+  }
+  .project-card:hover { border-color: rgba(0,200,255,0.3); }
+  .project-card:hover::before { transform: scaleY(1); }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+    background: var(--bg3);
+  }
+  .project-card.featured::before { background: var(--accent2); }
+
+  .project-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .project-num {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.2em;
+  }
+  .project-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .project-tag.new {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+
+  .project-title {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-specs {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .spec {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  .project-metrics {
+    display: flex; gap: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .metric { display: flex; flex-direction: column; gap: 0.2rem; }
+  .metric-val {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    color: var(--accent2);
+    line-height: 1;
+  }
+  .metric-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ── DATA CENTER FLOOR PLAN ── */
+  .floorplan-container {
+    margin-top: 2rem;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    padding: 1.5rem;
+  }
+
+  .floorplan-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .floorplan-svg-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  /* ── DATA CENTER DETAIL ── */
+  .dc-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .dc-detail-block {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+  }
+
+  .dc-detail-title {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dc-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(30,38,48,0.5);
+    font-size: 0.88rem;
+  }
+  .dc-detail-row:last-child { border-bottom: none; }
+  .dc-row-label { color: var(--text-dim); font-family: var(--mono); font-size: 0.75rem; }
+  .dc-row-val { color: var(--text); font-weight: 500; }
+  .dc-row-val.accent { color: var(--accent); }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    padding-top: 0.2rem;
+  }
+  .exp-company {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-top: 0.4rem;
+  }
+
+  .exp-right {}
+  .exp-title {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    padding: 0.35rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-headline {
+    font-family: var(--display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+  .contact-headline span { color: var(--accent); }
+
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.1rem 1.5rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-mid);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0,200,255,0.04);
+  }
+  .contact-link-icon { color: var(--accent); font-size: 1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: rgba(0,200,255,0.04);
+    border: 1px solid rgba(0,200,255,0.2);
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--accent); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .about-grid, .dc-detail-grid, .contact-section { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">JZ // Portfolio</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-tag">Mechanical Engineer — Naval HVAC &amp; Systems Design</div>
+  <h1 class="hero-name">JORDAN<br><span>ZUGE</span></h1>
+  <p class="hero-sub">
+    Precision systems engineer with naval-grade HVAC design experience. Specializing in complex mechanical routing, pressure loss optimization, and fabrication documentation — now targeting mission-critical data center infrastructure.
+  </p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">500kW</span>
+      <span class="stat-label">DC Design Load</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">N+1</span>
+      <span class="stat-label">Redundancy</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">7</span>
+      <span class="stat-label">CRAC Units</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">MIL-STD</span>
+      <span class="stat-label">Documentation</span>
+    </div>
+  </div>
+  <a href="#projects" class="hero-cta">View Projects ↓</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">// 001 — Profile</div>
+  <h2 class="section-title">ABOUT</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a mechanical engineer with a background in <strong>naval HVAC and shipboard systems design</strong> at Fincantieri Marinette Marine, where I've designed complex ducting systems, performed functional pressure loss analysis, and produced fabrication-ready documentation to MIL-STD standards.
+      </p>
+      <p>
+        My work demands the same engineering rigor that mission-critical data center infrastructure requires: <strong>zero-tolerance clash coordination, redundancy planning, and documentation that survives government audit</strong>. I'm now applying that discipline to data center mechanical design.
+      </p>
+      <p>
+        I hold a B.S. in Mechanical Engineering from the University of Wisconsin–Stout, and I bring hands-on experience in 3D CAD modeling, MEP coordination, and Python-based engineering analysis.
+      </p>
+    </div>
+    <div>
+      <div class="skills-grid">
+        <div class="skill-tag">HVAC System Design</div>
+        <div class="skill-tag">Pressure Loss Analysis</div>
+        <div class="skill-tag">3D Clash Resolution</div>
+        <div class="skill-tag">Navisworks</div>
+        <div class="skill-tag">AutoCAD</div>
+        <div class="skill-tag">ShipConstructor</div>
+        <div class="skill-tag">SolidWorks PDM</div>
+        <div class="skill-tag">Autodesk Inventor</div>
+        <div class="skill-tag">Python</div>
+        <div class="skill-tag">MATLAB</div>
+        <div class="skill-tag">MIL-STD Documentation</div>
+        <div class="skill-tag">Heat Transfer Analysis</div>
+        <div class="skill-tag">Fabrication Drawings</div>
+        <div class="skill-tag">MS Project</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="padding-top: 0;">
+  <div class="section-label">// 002 — Work</div>
+  <h2 class="section-title">PROJECTS</h2>
+  <div class="divider"></div>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1: DATA CENTER -->
+    <div class="project-card featured">
+      <div class="project-header">
+        <span class="project-num">PROJECT — 01</span>
+        <span class="project-tag new">Conceptual Design</span>
+      </div>
+      <div class="project-title">500 KW EDGE DATA CENTER<br>COOLING SYSTEM — PHOENIX, AZ</div>
+      <p class="project-desc">
+        Conceptual mechanical design of a 500 kW edge data center cooling system for a Phoenix, Arizona deployment. The extreme desert climate (110°F design day) drives all major design decisions: air-side economization is impractical in summer months, making mechanical cooling with evaporative pre-cooling the optimal strategy. CRAC units with raised floor plenum distribution provide the cooling architecture, designed to N+1 redundancy per Uptime Institute Tier II standards.
+      </p>
+      <div class="project-specs">
+        <span class="spec">CRAC + Raised Floor</span>
+        <span class="spec">N+1 Redundancy</span>
+        <span class="spec">ASHRAE A1 Class</span>
+        <span class="spec">Hot Aisle Containment</span>
+        <span class="spec">Evaporative Pre-Cool</span>
+        <span class="spec">Uptime Tier II</span>
+      </div>
+
+      <!-- FLOOR PLAN SVG -->
+      <div class="floorplan-container">
+        <div class="floorplan-label">// Floor Plan — Data Hall Layout (Not to Scale)</div>
+        <div class="floorplan-svg-wrap">
+          <svg viewBox="0 0 900 520" width="100%" style="display:block; max-width:900px; margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="floor-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e2630" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+
+            <!-- Background -->
+            <rect width="900" height="520" fill="#0a0c0f"/>
+            <rect width="900" height="520" fill="url(#floor-grid)"/>
+
+            <!-- Room outline -->
+            <rect x="40" y="40" width="820" height="440" fill="none" stroke="#2a3545" stroke-width="2"/>
+
+            <!-- Cold aisles (blue) -->
+            <rect x="60" y="140" width="760" height="60" fill="rgba(0,200,255,0.06)" stroke="rgba(0,200,255,0.3)" stroke-width="1"/>
+            <rect x="60" y="320" width="760" height="60" fill="rgba(0,200,255,0.06)" stroke="rgba(0,200,255,0.3)" stroke-width="1"/>
+
+            <!-- Cold aisle labels -->
+            <text x="440" y="175" text-anchor="middle" fill="rgba(0,200,255,0.6)" font-family="DM Mono, monospace" font-size="9" letter-spacing="2">COLD AISLE</text>
+            <text x="440" y="355" text-anchor="middle" fill="rgba(0,200,255,0.6)" font-family="DM Mono, monospace" font-size="9" letter-spacing="2">COLD AISLE</text>
+
+            <!-- Hot aisles (orange) -->
+            <rect x="60" y="240" width="760" height="60" fill="rgba(255,107,43,0.06)" stroke="rgba(255,107,43,0.25)" stroke-width="1"/>
+            <text x="440" y="274" text-anchor="middle" fill="rgba(255,107,43,0.6)" font-family="DM Mono, monospace" font-size="9" letter-spacing="2">HOT AISLE — CONTAINED</text>
+
+            <!-- Server racks — row 1 (above cold aisle 1) -->
+            <g id="row1">
+              <!-- 10 racks -->
+              <rect x="70"  y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="105" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="140" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="175" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="210" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="280" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="315" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="350" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="385" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="420" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="455" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="490" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="525" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="560" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="595" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="630" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="700" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="735" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="770" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="805" y="80"  width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+            </g>
+            <text x="440" y="68" text-anchor="middle" fill="#4a5a6a" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.5">SERVER RACK ROW A</text>
+
+            <!-- Server racks — row 2 (below cold aisle 1, above hot aisle) -->
+            <g id="row2">
+              <rect x="70"  y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="105" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="140" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="175" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="210" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="280" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="315" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="350" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="385" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="420" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="490" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="525" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="560" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="595" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="630" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="700" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="735" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="770" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="805" y="205" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+            </g>
+            <text x="440" y="222" text-anchor="middle" fill="#4a5a6a" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.5">SERVER RACK ROW B</text>
+
+            <!-- Server racks — row 3 (below hot aisle) -->
+            <g id="row3">
+              <rect x="70"  y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="105" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="140" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="175" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="210" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="280" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="315" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="350" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="385" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="420" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="490" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="525" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="560" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="595" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="630" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="700" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="735" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="770" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="805" y="305" width="30" height="30" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+            </g>
+            <text x="440" y="322" text-anchor="middle" fill="#4a5a6a" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.5">SERVER RACK ROW C</text>
+
+            <!-- Server racks — row 4 (below cold aisle 2) -->
+            <g id="row4">
+              <rect x="70"  y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="105" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="140" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="175" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="210" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="280" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="315" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="350" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="385" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="420" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="490" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="525" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="560" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="595" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="630" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="700" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="735" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="770" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+              <rect x="805" y="385" width="30" height="55" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+            </g>
+            <text x="440" y="455" text-anchor="middle" fill="#4a5a6a" font-family="DM Mono, monospace" font-size="8" letter-spacing="1.5">SERVER RACK ROW D</text>
+
+            <!-- CRAC units on left wall -->
+            <rect x="42" y="80"  width="22" height="40" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1.5" rx="2"/>
+            <rect x="42" y="130" width="22" height="40" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1.5" rx="2"/>
+            <rect x="42" y="200" width="22" height="40" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1.5" rx="2"/>
+            <rect x="42" y="260" width="22" height="40" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1.5" rx="2"/>
+            <rect x="42" y="330" width="22" height="40" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1.5" rx="2"/>
+            <rect x="42" y="390" width="22" height="40" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1.5" rx="2"/>
+            <!-- N+1 spare CRAC — slightly different style -->
+            <rect x="42" y="440" width="22" height="30" fill="rgba(0,200,255,0.06)" stroke="rgba(0,200,255,0.25)" stroke-width="1" stroke-dasharray="3,2" rx="2"/>
+            <text x="53" y="460" text-anchor="middle" fill="rgba(0,200,255,0.4)" font-family="DM Mono, monospace" font-size="6">SPARE</text>
+
+            <!-- CRAC labels -->
+            <text x="8" y="260" fill="rgba(0,200,255,0.7)" font-family="DM Mono, monospace" font-size="7" letter-spacing="1" transform="rotate(-90,8,260)">CRAC UNITS (N+1)</text>
+
+            <!-- UPS / Electrical room top right -->
+            <rect x="666" y="42" width="90" height="35" fill="rgba(255,107,43,0.08)" stroke="rgba(255,107,43,0.3)" stroke-width="1" rx="1"/>
+            <text x="711" y="64" text-anchor="middle" fill="rgba(255,107,43,0.7)" font-family="DM Mono, monospace" font-size="7" letter-spacing="1">UPS ROOM</text>
+
+            <!-- MDA (Main Distribution Area) -->
+            <rect x="245" y="42" width="110" height="35" fill="rgba(255,107,43,0.08)" stroke="rgba(255,107,43,0.3)" stroke-width="1" rx="1"/>
+            <text x="300" y="64" text-anchor="middle" fill="rgba(255,107,43,0.7)" font-family="DM Mono, monospace" font-size="7" letter-spacing="1">MDA / NETWORK</text>
+
+            <!-- Airflow arrows in cold aisles -->
+            <text x="130" y="172" fill="rgba(0,200,255,0.5)" font-family="DM Mono, monospace" font-size="9">↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑</text>
+            <text x="130" y="352" fill="rgba(0,200,255,0.5)" font-family="DM Mono, monospace" font-size="9">↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑</text>
+
+            <!-- Hot aisle arrows -->
+            <text x="130" y="274" fill="rgba(255,107,43,0.4)" font-family="DM Mono, monospace" font-size="9">→ → → → → → → → → → → → → →</text>
+
+            <!-- Legend -->
+            <rect x="760" y="380" width="120" height="100" fill="rgba(10,12,15,0.9)" stroke="#1e2630" stroke-width="1"/>
+            <text x="820" y="396" text-anchor="middle" fill="#4a5a6a" font-family="DM Mono, monospace" font-size="7" letter-spacing="1.5">LEGEND</text>
+            <rect x="768" y="404" width="12" height="8" fill="rgba(0,200,255,0.15)" stroke="rgba(0,200,255,0.5)" stroke-width="1"/>
+            <text x="785" y="412" fill="#6b7d8f" font-family="DM Mono, monospace" font-size="7">CRAC Unit</text>
+            <rect x="768" y="418" width="12" height="8" fill="rgba(0,200,255,0.06)" stroke="rgba(0,200,255,0.3)" stroke-width="1"/>
+            <text x="785" y="426" fill="#6b7d8f" font-family="DM Mono, monospace" font-size="7">Cold Aisle</text>
+            <rect x="768" y="432" width="12" height="8" fill="rgba(255,107,43,0.06)" stroke="rgba(255,107,43,0.25)" stroke-width="1"/>
+            <text x="785" y="440" fill="#6b7d8f" font-family="DM Mono, monospace" font-size="7">Hot Aisle</text>
+            <rect x="768" y="446" width="12" height="8" fill="#151a22" stroke="#2a3545" stroke-width="1"/>
+            <text x="785" y="454" fill="#6b7d8f" font-family="DM Mono, monospace" font-size="7">Server Rack</text>
+            <rect x="768" y="460" width="12" height="8" fill="rgba(255,107,43,0.08)" stroke="rgba(255,107,43,0.3)" stroke-width="1"/>
+            <text x="785" y="468" fill="#6b7d8f" font-family="DM Mono, monospace" font-size="7">Aux. Room</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Design calcs -->
+      <div class="dc-detail-grid">
+        <div class="dc-detail-block">
+          <div class="dc-detail-title">// Thermal Load Calculations</div>
+          <div class="dc-detail-row"><span class="dc-row-label">IT Equipment Load</span><span class="dc-row-val accent">500 kW</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Lighting + Misc. (15%)</span><span class="dc-row-val">75 kW</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Total Room Heat Load</span><span class="dc-row-val accent">575 kW</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">CRAC Unit Capacity</span><span class="dc-row-val">100 kW each</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">N Units Required</span><span class="dc-row-val">6 units</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">N+1 Total Installed</span><span class="dc-row-val accent">7 units</span></div>
+        </div>
+        <div class="dc-detail-block">
+          <div class="dc-detail-title">// Airflow &amp; Plenum Design</div>
+          <div class="dc-detail-row"><span class="dc-row-label">Supply Air Temp (ASHRAE A1)</span><span class="dc-row-val accent">55°F</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Return Air Temp</span><span class="dc-row-val">75°F</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">ΔT</span><span class="dc-row-val">20°F</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Total CFM Required</span><span class="dc-row-val accent">~23,000 CFM</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">CFM per CRAC</span><span class="dc-row-val">~3,800 CFM</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Raised Floor Plenum Depth</span><span class="dc-row-val accent">24 in. min.</span></div>
+        </div>
+        <div class="dc-detail-block">
+          <div class="dc-detail-title">// Phoenix Climate Strategy</div>
+          <div class="dc-detail-row"><span class="dc-row-label">Design Day Temp</span><span class="dc-row-val accent">110°F</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Air-Side Economizer</span><span class="dc-row-val">Not viable (summer)</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Evap. Pre-Cooling</span><span class="dc-row-val accent">Viable (low humidity)</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Evap. Efficiency Gain</span><span class="dc-row-val">~15–20% capacity</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Winter Economizer Hours</span><span class="dc-row-val">~1,800 hrs/yr</span></div>
+        </div>
+        <div class="dc-detail-block">
+          <div class="dc-detail-title">// Reliability &amp; Standards</div>
+          <div class="dc-detail-row"><span class="dc-row-label">Redundancy Level</span><span class="dc-row-val accent">N+1</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Uptime Institute Tier</span><span class="dc-row-val">Tier II</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Cooling Architecture</span><span class="dc-row-val">CRAC + Raised Floor</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Hot Aisle Containment</span><span class="dc-row-val accent">Yes</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Floor Tile Open Area</span><span class="dc-row-val">25% perforated</span></div>
+          <div class="dc-detail-row"><span class="dc-row-label">Design Standard</span><span class="dc-row-val">ASHRAE TC 9.9</span></div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Design Rationale:</strong> Phoenix's extreme summer heat (110°F design day) eliminates air-side economization as a primary strategy — the outdoor air is too hot to provide free cooling. However, the exceptionally low relative humidity (&lt;15% in summer) makes evaporative pre-cooling highly effective, allowing condenser entering air temperature to be reduced by 15–25°F with minimal water consumption. This hybrid approach reduces mechanical cooling demand while maintaining system reliability. Hot aisle containment is implemented to prevent recirculation, maximizing CRAC unit efficiency and maintaining predictable ΔT across all rows.
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric"><span class="metric-val">500kW</span><span class="metric-label">IT Load</span></div>
+        <div class="metric"><span class="metric-val">~2.0</span><span class="metric-label">Target PUE</span></div>
+        <div class="metric"><span class="metric-val">7</span><span class="metric-label">CRAC Units</span></div>
+        <div class="metric"><span class="metric-val">Tier II</span><span class="metric-label">Uptime Rating</span></div>
+        <div class="metric"><span class="metric-val">ASHRAE</span><span class="metric-label">A1 Compliant</span></div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: RIFLING INSPECTION -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-num">PROJECT — 02</span>
+        <span class="project-tag">Senior Design</span>
+      </div>
+      <div class="project-title">PRECISION METROLOGY SYSTEM<br>FOR CNC RIFLING QC</div>
+      <p class="project-desc">
+        Designed and calibrated a machine vision inspection system for automated quality control of broached rifling grooves in 9mm pistol barrels. Responsible for optical system design — lens selection, working distance calculation, and pixel-to-dimension calibration — enabling sub-millimeter measurement accuracy from a digital image feed. The system marks extremes on each groove edge and classifies barrel cross-sections as pass/fail against pre-defined dimensional tolerances.
+      </p>
+      <div class="project-specs">
+        <span class="spec">Cognex Camera</span>
+        <span class="spec">Optical Calibration</span>
+        <span class="spec">Pixel-to-mm Mapping</span>
+        <span class="spec">Tolerance Analysis</span>
+        <span class="spec">CNC Integration</span>
+        <span class="spec">Pass/Fail Logic</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><span class="metric-val">Sub-mm</span><span class="metric-label">Measurement Resolution</span></div>
+        <div class="metric"><span class="metric-val">Auto</span><span class="metric-label">Pass/Fail Classification</span></div>
+        <div class="metric"><span class="metric-val">9mm</span><span class="metric-label">Barrel Application</span></div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: NAVAL HVAC -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-num">PROJECT — 03</span>
+        <span class="project-tag">Professional</span>
+      </div>
+      <div class="project-title">NAVAL SHIPBOARD HVAC<br>&amp; MECHANICAL SYSTEMS</div>
+      <p class="project-desc">
+        At Fincantieri Marinette Marine, designed and routed complex shipboard HVAC ducting systems, developed 3D CAD models for SSDG exhaust and gas turbine intake systems, and resolved multi-discipline clashes (HVAC-to-structure, HVAC-to-piping, HVAC-to-electrical) in Navisworks. Produced MIL-STD compliant fabrication and installation drawings with first-pass installation accuracy, eliminating costly waterfront rework.
+      </p>
+      <div class="project-specs">
+        <span class="spec">ShipConstructor</span>
+        <span class="spec">Navisworks</span>
+        <span class="spec">MIL-STD</span>
+        <span class="spec">SSDG Exhaust</span>
+        <span class="spec">Gas Turbine Intake</span>
+        <span class="spec">MEP Coordination</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><span class="metric-val">0</span><span class="metric-label">Rework on Install</span></div>
+        <div class="metric"><span class="metric-val">MIL-STD</span><span class="metric-label">Documentation</span></div>
+        <div class="metric"><span class="metric-val">Multi</span><span class="metric-label">Discipline Clash Res.</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">// 003 — History</div>
+  <h2 class="section-title">EXPERIENCE</h2>
+  <div class="divider"></div>
+
+  <div class="exp-list">
+    <div class="exp-item">
+      <div>
+        <div class="exp-date">May 2025 — Present</div>
+        <div class="exp-company">Fincantieri Marinette Marine / TMMG</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-title">HVAC Functional / Design Engineer</div>
+        <ul class="exp-bullets">
+          <li>Designed and routed complex shipboard HVAC ducting, reducing pressure losses and improving airflow efficiency for crew habitability.</li>
+          <li>Produced fabrication and installation drawings achieving accurate first-pass installations, eliminating waterfront rework.</li>
+          <li>Performed functional HVAC pressure loss analysis optimizing system balancing for energy efficiency and equipment life.</li>
+          <li>Resolved HVAC-to-structure, HVAC-to-piping, and HVAC-to-electrical clashes in 3D models using Navisworks.</li>
+          <li>Developed 3D CAD models for SSDG exhaust and gas turbine intake systems, producing fabrication-ready routing packages.</li>
+          <li>Supported Remote Operator System design documentation to MIL-STD compliance for government acceptance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-date">May 2024 — Aug 2024</div>
+        <div class="exp-company">Rice Lake Weighing Systems</div>
+      </div>
+      <div class="exp-right">
+        <div class="exp-title">Mechanical Engineering Intern</div>
+        <ul class="exp-bullets">
+          <li>Applied SolidWorks PDM/EPDM for organized part traceability, improving manufacturing accuracy and revision control.</li>
+          <li>Worked directly with CNC machining teams delivering design-for-manufacturability improvements that reduced cycle time.</li>
+          <li>Designed and manufactured a production jig improving daily workflow consistency.</li>
+          <li>Led integration of an acquired company's parts library into EPDM, standardizing part numbering across the enterprise.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div>
+    <div class="section-label">// 004 — Contact</div>
+    <h2 class="contact-headline">LET'S<br>WORK<br><span>TOGETHER</span></h2>
+  </div>
+  <div>
+    <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem;">
+      Available for data center mechanical engineering roles in <strong style="color:var(--text)">Virginia Beach, VA</strong> and <strong style="color:var(--text)">Tempe / Chandler, AZ</strong>. Open to relocation within Virginia (Northern VA corridor) for the right mission-critical opportunity.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:jordanzuge@gmail.com" class="contact-link">
+        <span class="contact-link-icon">✉</span>
+        jordanzuge@gmail.com
+      </a>
+      <a href="tel:9206609552" class="contact-link">
+        <span class="contact-link-icon">✆</span>
+        920-660-9552
+      </a>
+      <a href="#" class="contact-link">
+        <span class="contact-link-icon">↓</span>
+        Download Resume (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2026 Jordan Zuge — Mechanical Engineer</div>
+  <div class="footer-copy">Naval HVAC &amp; Systems Design → Mission Critical Infrastructure</div>
+</footer>
+
+</body>
+</html>
