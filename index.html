@@ -69,7 +69,6 @@
     padding: 0 3rem 5rem;
     position: relative;
     overflow: hidden;
-    padding-top: 6rem;
   }
 
   .hero-grid {
@@ -520,63 +519,14 @@
   }
   .callout strong { color: var(--accent); }
 
-@media (max-width:768px){
-
-nav{
-flex-direction:column;
-align-items:flex-start;
-gap:.75rem;
-padding:1rem 1.5rem;
-}
-
-.nav-links{
-flex-wrap:wrap;
-gap:1rem;
-}
-
-section{
-padding:5rem 1.25rem;
-}
-
-.hero{
-padding:0 1.25rem 4rem;
-padding-top: 6rem;
-}
-
-.hero-name{
-font-size:clamp(3rem,18vw,5rem);
-line-height:.95;
-}
-
-.hero-stats,
-.project-metrics{
-flex-wrap:wrap;
-gap:1rem;
-}
-
-.stat-item,
-.metric{
-width:calc(50% - .5rem);
-}
-
-.about-grid,
-.dc-detail-grid,
-.contact-section,
-.exp-item{
-grid-template-columns:1fr;
-}
-
-.contact-link{
-overflow-wrap:anywhere;
-}
-
-footer{
-flex-direction:column;
-gap:1rem;
-text-align:center;
-}
-
-}
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .about-grid, .dc-detail-grid, .contact-section { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
 </style>
 </head>
@@ -584,7 +534,7 @@ text-align:center;
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">JZ // Portfolio</div>
+  <div class="nav-logo">JZ // Mechanical Engineer</div>
   <div class="nav-links">
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
@@ -596,27 +546,27 @@ text-align:center;
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-scan"></div>
-  <div class="hero-tag">Mechanical Engineer — Naval HVAC &amp; Systems Design</div>
+  <div class="hero-tag">Mechanical Engineer — Precision Systems & Autonomous Technology</div>
   <h1 class="hero-name">JORDAN<br><span>ZUGE</span></h1>
   <p class="hero-sub">
-    Precision systems engineer with naval-grade HVAC design experience. Specializing in complex mechanical routing, pressure loss optimization, and fabrication documentation — now targeting mission-critical data center infrastructure.
+    Engineer with a bias toward complex problems. I design precision mechanical systems, resolve multi-discipline conflicts before they become field failures, and build autonomous software that makes decisions without me. Naval rigor meets independent thinking.
   </p>
   <div class="hero-stats">
     <div class="stat-item">
-      <span class="stat-num">500kW</span>
-      <span class="stat-label">DC Design Load</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">N+1</span>
-      <span class="stat-label">Redundancy</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">7</span>
-      <span class="stat-label">CRAC Units</span>
+      <span class="stat-num">4</span>
+      <span class="stat-label">Engineering Disciplines</span>
     </div>
     <div class="stat-item">
       <span class="stat-num">MIL-STD</span>
       <span class="stat-label">Documentation</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Live</span>
+      <span class="stat-label">Autonomous Trading System</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">B.S.</span>
+      <span class="stat-label">Mechanical Engineering</span>
     </div>
   </div>
   <a href="#projects" class="hero-cta">View Projects ↓</a>
@@ -630,13 +580,13 @@ text-align:center;
   <div class="about-grid">
     <div class="about-text">
       <p>
-        I'm a mechanical engineer with a background in <strong>naval HVAC and shipboard systems design</strong> at Fincantieri Marinette Marine, where I've designed complex ducting systems, performed functional pressure loss analysis, and produced fabrication-ready documentation to MIL-STD standards.
+        I'm a mechanical engineer with hands-on experience designing complex systems where failure isn't an option. At Fincantieri Marinette Marine I've designed shipboard HVAC systems, performed pressure loss analysis, resolved multi-discipline MEP conflicts in 3D models, and produced <strong>MIL-STD compliant documentation</strong> that passes government audit.
       </p>
       <p>
-        My work demands the same engineering rigor that mission-critical data center infrastructure requires: <strong>zero-tolerance clash coordination, redundancy planning, and documentation that survives government audit</strong>. I'm now applying that discipline to data center mechanical design.
+        Outside of my engineering role I build things independently. I designed a <strong>conceptual 500 kW cooling system</strong> to ASHRAE TC 9.9 standards to expand my mechanical design range, and I built and deployed a <strong>fully autonomous algorithmic trading system</strong> — integrating multiple APIs, cross-platform data pipelines, and automated decision logic from scratch.
       </p>
       <p>
-        I hold a B.S. in Mechanical Engineering from the University of Wisconsin–Stout, and I bring hands-on experience in 3D CAD modeling, MEP coordination, and Python-based engineering analysis.
+        I hold a B.S. in Mechanical Engineering from the University of Wisconsin–Stout. I'm open to relocation and drawn to roles where the engineering actually matters.
       </p>
     </div>
     <div>
@@ -676,7 +626,7 @@ text-align:center;
       </div>
       <div class="project-title">500 KW EDGE DATA CENTER<br>COOLING SYSTEM — PHOENIX, AZ</div>
       <p class="project-desc">
-        Conceptual mechanical design of a 500 kW edge data center cooling system for a Phoenix, Arizona deployment. The extreme desert climate (110°F design day) drives all major design decisions: air-side economization is impractical in summer months, making mechanical cooling with evaporative pre-cooling the optimal strategy. CRAC units with raised floor plenum distribution provide the cooling architecture, designed to N+1 redundancy per Uptime Institute Tier II standards.
+        Conceptual mechanical design of a 500 kW mission-critical cooling system for a Phoenix, Arizona deployment — completed independently to demonstrate applied HVAC system design beyond my naval work. The extreme desert climate (110°F design day) drives every major design decision: air-side economization is impractical in summer, making mechanical cooling with evaporative pre-cooling the optimal strategy. Designed to N+1 redundancy per Uptime Institute Tier II standards and ASHRAE TC 9.9 thermal guidelines.
       </p>
       <div class="project-specs">
         <span class="spec">CRAC + Raised Floor</span>
@@ -901,7 +851,7 @@ text-align:center;
       </div>
 
       <div class="callout">
-        <strong>Design Rationale:</strong> Phoenix's extreme summer heat (110°F design day) eliminates air-side economization as a primary strategy, the outdoor air is too hot to provide free cooling. However, the low relative humidity (&lt;15% in summer) makes evaporative pre-cooling highly effective, allowing condenser entering air temperature to be reduced by 15–25°F with minimal water consumption. This hybrid approach reduces mechanical cooling demand while maintaining system reliability. Hot aisle containment is implemented to prevent recirculation, maximizing CRAC unit efficiency and maintaining predictable ΔT across all rows.
+        <strong>Design Rationale:</strong> Phoenix's extreme summer heat (110°F design day) eliminates air-side economization as a primary strategy — the outdoor air is too hot to provide free cooling. However, the exceptionally low relative humidity (&lt;15% in summer) makes evaporative pre-cooling highly effective, allowing condenser entering air temperature to be reduced by 15–25°F with minimal water consumption. This hybrid approach reduces mechanical cooling demand while maintaining system reliability. Hot aisle containment is implemented to prevent recirculation, maximizing CRAC unit efficiency and maintaining predictable ΔT across all rows.
       </div>
 
       <div class="project-metrics">
@@ -921,7 +871,7 @@ text-align:center;
       </div>
       <div class="project-title">PRECISION METROLOGY SYSTEM<br>FOR CNC RIFLING QC</div>
       <p class="project-desc">
-        Designed and calibrated a machine vision inspection system for automated quality control of broached rifling grooves in 9mm pistol barrels. Responsible for optical system design, lens selection, working distance calculation, and pixel-to-dimension calibration. Enabling our team to achieve sub-millimeter measurement accuracy from a digital image feed. The system marks extremes on each groove edge and classifies barrel cross-sections as pass/fail against pre-defined dimensional tolerances.
+        Designed and calibrated a machine vision inspection system for automated quality control of broached rifling grooves in 9mm pistol barrels. Responsible for optical system design — lens selection, working distance calculation, and pixel-to-dimension calibration — enabling sub-millimeter measurement accuracy from a digital image feed. The system marks extremes on each groove edge and classifies barrel cross-sections as pass/fail against pre-defined dimensional tolerances.
       </p>
       <div class="project-specs">
         <span class="spec">Cognex Camera</span>
@@ -938,10 +888,35 @@ text-align:center;
       </div>
     </div>
 
+    <!-- PROJECT 4: TRADING BOT -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-num">PROJECT — 04</span>
+        <span class="project-tag new">Live System</span>
+      </div>
+      <div class="project-title">AUTONOMOUS ALGORITHMIC<br>TRADING SYSTEM</div>
+      <p class="project-desc">
+        Designed, built, and deployed a fully autonomous algorithmic trading system — entirely self-directed outside of regular engineering work. The system integrates multiple brokerage APIs for live market data acquisition and trade execution, communicates across platforms through custom-built data pipelines, and applies quantitative selection logic to make and manage trading decisions without manual intervention. Built end-to-end in Python: from strategy development and backtesting through live deployment, automated alerting, and performance logging.
+      </p>
+      <div class="project-specs">
+        <span class="spec">Python</span>
+        <span class="spec">API Integration</span>
+        <span class="spec">Cross-Platform Pipelines</span>
+        <span class="spec">Backtesting Engine</span>
+        <span class="spec">Live Deployment</span>
+        <span class="spec">Automated Alerting</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><span class="metric-val">Live</span><span class="metric-label">Production System</span></div>
+        <div class="metric"><span class="metric-val">Auto</span><span class="metric-label">Decision Execution</span></div>
+        <div class="metric"><span class="metric-val">Multi</span><span class="metric-label">API Integration</span></div>
+      </div>
+    </div>
+
     <!-- PROJECT 3: NAVAL HVAC -->
     <div class="project-card">
       <div class="project-header">
-        <span class="project-num">PROJECT — 03</span>
+        <span class="project-num">PROJECT — 05</span>
         <span class="project-tag">Professional</span>
       </div>
       <div class="project-title">NAVAL SHIPBOARD HVAC<br>&amp; MECHANICAL SYSTEMS</div>
@@ -1017,7 +992,7 @@ text-align:center;
   </div>
   <div>
     <p style="color: var(--text-mid); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem;">
-      Available for data center mechanical engineering roles in <strong style="color:var(--text)">Virginia Beach, VA</strong> and <strong style="color:var(--text)">Tempe / Chandler, AZ</strong>. Open to relocation within Virginia (Northern VA corridor) for the right mission-critical opportunity.
+      Mechanical Engineer with a background in precision systems design, fabrication documentation, and autonomous software development. Currently based in the Midwest — <strong style="color:var(--text)">open to relocation nationwide</strong> for the right opportunity.
     </p>
     <div class="contact-links">
       <a href="mailto:jordanzuge@gmail.com" class="contact-link">
@@ -1028,7 +1003,7 @@ text-align:center;
         <span class="contact-link-icon">✆</span>
         920-660-9552
       </a>
-      <a href="https://docs.google.com/document/d/1yaNubf1ymQrv9zL6w7S5xawRlnKYHGKB/export?format=pdf&ouid=110399449845478144939&rtpof=true&sd=true" class="contact-link">
+      <a href="#" class="contact-link">
         <span class="contact-link-icon">↓</span>
         Download Resume (PDF)
       </a>
@@ -1038,7 +1013,7 @@ text-align:center;
 
 <footer>
   <div class="footer-copy">© 2026 Jordan Zuge — Mechanical Engineer</div>
-  <div class="footer-copy">Naval HVAC &amp; Systems Design → Mission Critical Infrastructure</div>
+  <div class="footer-copy">Precision Systems Engineering · Autonomous Software · Open to Relocation</div>
 </footer>
 
 </body>
